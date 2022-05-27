@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./icone.png">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<header class="cabecalho">
+    <div class="menu">
+        <span class="SnakeGame">Snake Game </span> <img class="icone" src="./icone.png">
+
+    </div>
+</header>
+
+
+<body>
+
+    <div class="separacao">
+        <div class="comoJogar">
+            <div class="comoJogarDiv">
+                <h1>Tutorial</h1>
+                <p>
+
+                </p>
+                Clique em JOGAR
+                <p></p>
+                Ultilize as setinhas para subir e descer e mover para aos lados com a cobrinha
+                <P></P>
+                Ao passar a cobrinha por cima da fruta, você ganhará pontos.
+                <p></p>
+                Se o jogo bugar, aperte este botão.
+                <div class="botao"><button id="refreshAtualiza" type="button" onclick="">
+                AQUI </button> </div>
+            </div>
+
+        </div>
+        <div class="Quadrado">
+            <div class="jogo">
+                <canvas id="snake" width="512" height="512"></canvas>
+            </div>
+
+
+
+        </div>
+        <div class="div-pontuacao">
+            <div class="div-vida">
+                <p class="pVIDA">VIDA</p>
+                <progress value="100" max="100" id=p1></progress>
+                <spann id="vida" class="vida"></spann>
+            </div>
+            <div class="divPontuacao">
+                <span>Pontuação</span>
+                <div>
+                    <spann id="pontuacao" class="pontuacao">0</spann>
+                </div>
+            </div>
+
+            <div class="pontuacao-div">
+                <ul>
+                    <span>Ultimas Pontuações</span>
+                    <p></p>
+                    <li id="pont0">
+
+                    </li>
+                    <li id="pont1">
+
+                    </li>
+                    <li id="pont2">
+
+                    </li>
+                    <li id="pont3">
+
+                    </li>
+                    <li id="pont4">
+
+                    </li>
+                </ul>
+
+            </div>
+            <div class="botao"><button id="refresh" type="button" onclick="">JOGAR</button> </div>
+        </div>
+    </div>
+</body>
+<footer class="rodape">
+    <div class="rodapeDiv">
+        DESENVOLVIDO POR <a href="https://github.com/ViniciusF-Pereira" target="_blank"><span> VINICIUS DE FREITAS</span></a></div>
+</footer>
+<script defer src="./js/script.js"></script>
+
+</html>
