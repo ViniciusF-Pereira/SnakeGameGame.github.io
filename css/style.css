@@ -1,5 +1,5 @@
     body {
-        background-image: url("/assets/floresta.webp");
+        background-image: url("./assets/floresta.webp");
         background-repeat: no-repeat, no-repeat;
         background-size: cover;
         font-size: 30px;
