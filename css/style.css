@@ -6,9 +6,9 @@
         zoom: 87%;
         margin-top: 200px;
     }
-    html, body 
+html, body 
 { 
- height: 100%;
+
  overflow: hidden
 }
     .SnakeGame {
