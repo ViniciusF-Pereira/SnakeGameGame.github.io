@@ -6,7 +6,11 @@
         zoom: 87%;
         margin-top: 200px;
     }
-    
+    html, body 
+{ 
+ height: 100%;
+ overflow: hidden
+}
     .SnakeGame {
         font-size: 45px;
     }
