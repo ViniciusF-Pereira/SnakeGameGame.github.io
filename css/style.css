@@ -3,14 +3,15 @@
         background-repeat: no-repeat, no-repeat;
         background-size: cover;
         font-size: 30px;
-        zoom: 87%;
         margin-top: 200px;
     }
-html, body 
-{ 
-
- overflow: hidden
-}
+    
+    html,
+    body {
+        overflow: hidden;
+        zoom: 87%;
+    }
+    
     .SnakeGame {
         font-size: 45px;
     }
@@ -38,7 +39,7 @@ html, body
     
     .comoJogar {
         border: 2px solid black;
-        width: 150vh;
+        width: 450px;
         margin-left: 70px;
         background-color: rgb(198, 245, 167);
         align-items: center;
@@ -137,12 +138,13 @@ html, body
     }
     
     .Quadrado {
-        margin-top: 4.5%;
+        margin-top: 2%;
         margin-left: 60px;
         margin-right: 60px;
         display: flex;
         align-items: center;
         flex-direction: column;
+        zoom: 130%;
     }
     
     .botao {
@@ -160,6 +162,10 @@ html, body
         color: white;
         transition: 3s;
         font-size: 30px;
+    }
+    
+    #botaodive {
+        margin-top: 100px;
     }
     
     .botao button:hover {
