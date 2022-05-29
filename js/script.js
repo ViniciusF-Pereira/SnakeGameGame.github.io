@@ -1,6 +1,9 @@
 //--------------------------    VARIAVEIS   -----------------------
 var ranking = [];
 
+
+var playerCanPlay = true;
+
 ranking[0] = 0;
 ranking[1] = 0;
 ranking[2] = 0;
@@ -10,7 +13,16 @@ ranking[4] = 0;
 let lista = 0;
 let pontos = 0; // pontos
 
+
+//  Define o campo usando em x e y e a largura e altura setadas
+//      Define the fild of the game
+
+
 function jogar() {
+
+
+
+
     var nrCorComida = 0; // para trocar a cor da comida ( piscando)
     var corComida = []; //to change food color (flashing)
 
@@ -65,7 +77,6 @@ function jogar() {
         //  Define o campo usando em x e y e a largura e altura setadas
         //      Define the fild of the game
     }
-
     //---------------------------------------------- Função Criar Cobra / Fuction CREATE Snake
     function criarCobrinha() {
 
@@ -152,8 +163,10 @@ function jogar() {
             if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
                 clearInterval(jogo);
 
+                var audio2 = document.getElementById('audio2');
+                audio2.play();
 
-
+                playerCanPlay = true;
                 alert('Game Over :(');
 
                 document.getElementById("pontuacao").innerHTML = pontos;
@@ -180,12 +193,11 @@ function jogar() {
 
             if (vida == 0) {
 
-
                 document.getElementById("pontuacao").innerHTML = pontos;
                 ranking[lista] = pontos;
 
-
-
+                var audio1 = document.getElementById('audio1');
+                audio1.play();
 
                 document.getElementById("pont0").innerHTML = ranking[0];
                 document.getElementById("pont1").innerHTML = ranking[1];
@@ -193,6 +205,7 @@ function jogar() {
                 document.getElementById("pont3").innerHTML = ranking[3];
                 document.getElementById("pont4").innerHTML = ranking[4];
                 lista++
+                playerCanPlay = true;
                 clearInterval(jogo);
 
                 alert('Game Over :(');
@@ -260,6 +273,9 @@ function jogar() {
             // ao passar a cobra na comida, ela gera a comida em outro lugar
             food.y = Math.floor(Math.random() * 15 + 1) * box;
             // when passing the snake in the food, it generates the food elsewhere
+
+            var audio4 = document.getElementById('audio4');
+            audio4.play();
             vida = vida + 30;
             if (vida > 100) {
                 vida = 100;
@@ -299,15 +315,22 @@ function jogar() {
     // Sets a time interval to start the game and renew the game without it crashing
 
 }
+
 // INICIAR O JOGO / START THE GAME
 var btn = document.querySelector("#refresh");
 btn.addEventListener("click", function() {
 
 
 
+    if (playerCanPlay == true) {
+        var audio3 = document.getElementById('audio3');
+        audio3.play();
+        document.getElementById("pontuacao").innerHTML = pontos;
+        jogar();
+        playerCanPlay = false;
 
-    document.getElementById("pontuacao").innerHTML = pontos;
-    jogar();
+    }
+
 
 
 });
