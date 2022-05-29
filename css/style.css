@@ -1,202 +1,206 @@
-    body {
-        background: url("https://img.freepik.com/vetores-gratis/paisagem-da-floresta-dos-desenhos-animados-ao-por-do-sol_104785-622.jpg");
-        background-repeat: no-repeat, no-repeat;
-        background-size: cover;
-        font-size: 30px;
-        margin-top: 200px;
-    }
-    
-    html,
-    body {
-        overflow: hidden;
- 
-    }
-    
-    .SnakeGame {
-        font-size: 45px;
-    }
-    
-    .menu {
-        margin-right: 20px;
-        margin-left: 30PX;
-        text-align: center;
-        margin-bottom: 10px;
-        height: 60px;
-    }
-    
-    .icone {
-        height: 250px;
-        width: 250px;
-        position: fixed;
-    }
-    
-    .rodapeDiv {
-        text-align: center;
-        margin-top: 15px;
-        margin-right: 20px;
-        margin-left: 30PX;
-    }
-    
-    .comoJogar {
-        border: 2px solid black;
-        width: 450px;
-        margin-left: 70px;
-        background-color: rgb(198, 245, 167);
-        align-items: center;
-        text-align: center;
-    }
-    
-    .comoJogarDiv {
-        margin-top: 40px;
-    }
-    
-    .cabecalho {
-        background-color: black;
-        color: white;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    
-    .rodape {
-        background-color: black;
-        color: white;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        height: 2rem;
-    }
-    
-    a {
-        text-decoration: none;
-        color: white;
-    }
-    
-    a:link {
-        text-decoration: none;
-    }
-    
-    a:hover {
-        text-decoration: underline;
-    }
-    
-    .pontuacao-div {
-        text-align: center;
-        color: black;
-        border: 1px solid black;
-        background-color: rgb(201, 236, 190);
-        font-size: 25px;
-        width: 200px;
-        margin-left: 75px;
-        margin-right: 75px;
-        border-radius: 10%;
-    }
-    
-    .divPontuacao {
-        width: 190px;
-        height: 100px;
-        background-color: rgb(201, 236, 190);
-        border: 4px black solid;
-        border-radius: 30%;
-        margin-left: 80px;
-        margin-right: 80px;
-        margin-bottom: 20px;
-    }
-    
-    .pVIDA {
-        font-size: 30px;
-        color: black;
-    }
-    
-    .div-vida {
-        margin-top: 5px;
-        margin-bottom: 20px;
-    }
-    
-    li {
-        list-style-type: armenian;
-    }
-    
-    .div-pontuacao {
-        text-align: center;
-        align-items: center;
-        width: 350px;
-        background-color: rgb(198, 245, 167);
-        margin-right: 70px;
-        border: 2px solid black;
-    }
-    
-    .separacao {
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    body:hover {
-        background-color: rgb(169, 236, 152);
-    }
-    
-    .Quadrado {
-        margin-top: 2%;
-        margin-left: 60px;
-        margin-right: 60px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        zoom: 130%;
-    }
-    
-    .botao {
-        margin-top: 20px;
-        text-align: center;
-        margin-bottom: 40px;
-        margin-left: 123px;
-        margin-right: 120px;
-    }
-    
-    .botao button {
-        width: 120px;
-        height: 100px;
-        background-color: rgb(7, 37, 7);
-        color: white;
-        transition: 3s;
-        font-size: 30px;
-    }
-    
-    #botaodive {
-        margin-top: 100px;
-    }
-    
-    .botao button:hover {
-        cursor: pointer;
-        background-color: rgb(43, 165, 155);
-        color: white;
-    }
-    
-    progress {
-        border: none;
-        width: 300px;
-        height: 30px;
-        background: crimson;
-    }
-    
-    progress {
-        color: lightblue;
-    }
-    
-    progress::-webkit-progress-value {
-        background: lightblue;
-    }
-    
-    progress::-moz-progress-bar {
-        background: lightcolor;
-    }
-    
-    progress::-webkit-progress-value {
-        background: rgb(226, 10, 10);
-    }
-    
-    progress::-webkit-progress-bar {
-        background: rgb(0, 255, 55);
-    }
+body {
+    font-size: 30px;
+}
+
+html {
+    background: url("https://img.freepik.com/vetores-gratis/paisagem-da-floresta-dos-desenhos-animados-ao-por-do-sol_104785-622.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 130%;
+    background-position: 0rem 0rem;
+    background-color: green;
+}
+
+html,
+body {
+    overflow: hidden;
+}
+
+html {
+    zoom: 76%;
+}
+
+.SnakeGame {
+    font-size: 45px;
+}
+
+.menu {
+    margin-right: 20px;
+    margin-left: 30PX;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 60px;
+}
+
+.icone {
+    height: 250px;
+    width: 250px;
+    position: fixed;
+}
+
+.rodapeDiv {
+    text-align: center;
+    margin-top: 1.5%;
+    margin-right: 20px;
+    margin-left: 30PX;
+}
+
+.comoJogar {
+    border: 2px solid black;
+    width: 450px;
+    margin-left: 70px;
+    background-color: rgb(198, 245, 167);
+    align-items: center;
+    text-align: center;
+}
+
+.comoJogarDiv {
+    margin-top: 40px;
+}
+
+.cabecalho {
+    background-color: black;
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.rodape {
+    background-color: black;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 7%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.pontuacao-div {
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    background-color: rgb(201, 236, 190);
+    font-size: 25px;
+    width: 200px;
+    margin-left: 75px;
+    margin-right: 75px;
+    border-radius: 10%;
+}
+
+.divPontuacao {
+    width: 190px;
+    height: 100px;
+    background-color: rgb(201, 236, 190);
+    border: 4px black solid;
+    border-radius: 30%;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 20px;
+}
+
+.pVIDA {
+    font-size: 30px;
+    color: black;
+}
+
+.div-vida {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+li {
+    list-style-type: armenian;
+}
+
+.div-pontuacao {
+    text-align: center;
+    align-items: center;
+    width: 350px;
+    background-color: rgb(198, 245, 167);
+    margin-right: 70px;
+    border: 2px solid black;
+}
+
+.separacao {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14rem;
+}
+
+.Quadrado {
+    margin-top: 2%;
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    zoom: 130%;
+}
+
+.botao {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-left: 123px;
+    margin-right: 120px;
+}
+
+.botao button {
+    width: 120px;
+    height: 100px;
+    background-color: rgb(7, 37, 7);
+    color: white;
+    transition: 3s;
+    font-size: 30px;
+}
+
+#botaodive {
+    margin-top: 100px;
+}
+
+.botao button:hover {
+    cursor: pointer;
+    background-color: rgb(43, 165, 155);
+    color: white;
+}
+
+progress {
+    border: none;
+    width: 300px;
+    height: 30px;
+    background: crimson;
+}
+
+progress {
+    color: lightblue;
+}
+
+progress::-webkit-progress-value {
+    background: lightblue;
+}
+
+progress::-moz-progress-bar {
+    background: lightcolor;
+}
+
+progress::-webkit-progress-value {
+    background: rgb(226, 10, 10);
+}
+
+progress::-webkit-progress-bar {
+    background: rgb(0, 255, 55);
+}
