@@ -27,26 +27,26 @@ function jogar() {
     var Frutas = []; //to change food color (flashing)
 
 
-    Frutas[0] = "/assets/comidas/banan.jpg";
-    Frutas[1] = "/assets/comidas/maca.png";
-    Frutas[2] = "/assets/comidas/cherry.jpg";
-    Frutas[3] = "/assets/comidas/lemon.jpg";
-    Frutas[4] = "/assets/comidas/strawberry.jpg";
+    Frutas[0] = "./assets/comidas/banan.jpg";
+    Frutas[1] = "./assets/comidas/maca.png";
+    Frutas[2] = "./assets/comidas/cherry.jpg";
+    Frutas[3] = "./assets/comidas/lemon.jpg";
+    Frutas[4] = "./assets/comidas/strawberry.jpg";
 
     var snakeHeaddirectionNumero = 0;
     var snakeHeaddirection = [];
 
-    snakeHeaddirection[0] = "/assets/Snake/snakeHead_direita.png";
-    snakeHeaddirection[1] = "/assets/Snake/snakeHead_esquerda.png";
-    snakeHeaddirection[2] = "/assets/Snake/snakeHead_cima.png";
-    snakeHeaddirection[3] = "/assets/Snake/snakeHead_baixo.png";
+    snakeHeaddirection[0] = "./assets/Snake/snakeHead_direita.png";
+    snakeHeaddirection[1] = "./assets/Snake/snakeHead_esquerda.png";
+    snakeHeaddirection[2] = "./assets/Snake/snakeHead_cima.png";
+    snakeHeaddirection[3] = "./assets/Snake/snakeHead_baixo.png";
 
     var snakeTailImageDirection = [];
 
-    snakeTailImageDirection[0] = "/assets/Snake/snakeTail_direita.png";
-    snakeTailImageDirection[1] = "/assets/Snake/snakeTail_esquerda.png";
-    snakeTailImageDirection[2] = "/assets/Snake/snakeTail_cima.png";
-    snakeTailImageDirection[3] = "/assets/Snake/snakeTail_baixo.png";
+    snakeTailImageDirection[0] = "./assets/Snake/snakeTail_direita.png";
+    snakeTailImageDirection[1] = "./assets/Snake/snakeTail_esquerda.png";
+    snakeTailImageDirection[2] = "./assets/Snake/snakeTail_cima.png";
+    snakeTailImageDirection[3] = "./assets/Snake/snakeTail_baixo.png";
 
     let vida = 70; // vida da cobrinha
     let vidamenos = 100;
@@ -104,7 +104,7 @@ function jogar() {
 
             snakeBodyImage = new Image();
 
-            snakeBodyImage.src = "/assets/Snake/snakeBody.png";
+            snakeBodyImage.src = "./assets/Snake/snakeBody.png";
 
             context.drawImage(snakeBodyImage, snake[i].x, snake[i].y, box, box);
 
@@ -173,7 +173,7 @@ function jogar() {
 
 
         base_image = new Image();
-        base_image.src = "joaninha.jpg";
+        base_image.src = ".joaninha.jpg";
 
 
 
