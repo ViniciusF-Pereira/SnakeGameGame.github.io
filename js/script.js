@@ -486,7 +486,6 @@ function jogar() {
 
 var audioFundo = document.getElementById('audioFundo');
 
-audioFundo.autoplay = true;
 
 // INICIAR O JOGO / START THE GAME
 var btn = document.querySelector("#refresh");
@@ -498,7 +497,7 @@ btn.addEventListener("click", function() {
         var audio3 = document.getElementById('audio3');
         audio3.play();
         document.getElementById("pontuacao").innerHTML = pontos;
-
+        audioFundo.play();
         jogar();
 
 
