@@ -486,7 +486,7 @@ function jogar() {
 
 var audioFundo = document.getElementById('audioFundo');
 
-audioFundo.autoplay = true;
+
 
 // INICIAR O JOGO / START THE GAME
 var btn = document.querySelector("#refresh");
@@ -501,7 +501,7 @@ btn.addEventListener("click", function() {
 
         jogar();
 
-
+        audioFundo.play();
 
         playerCanPlay = false;
 
