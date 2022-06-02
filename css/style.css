@@ -16,7 +16,7 @@ body {
 }
 
 html {
-    zoom: 76%;
+    zoom: 56%;
 }
 
 .SnakeGame {
@@ -148,7 +148,7 @@ li {
     display: flex;
     align-items: center;
     flex-direction: column;
-    zoom: 130%;
+    zoom: 152%;
 }
 
 .botao {
