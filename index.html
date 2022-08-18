@@ -28,27 +28,26 @@
 <body>
 
     <div class="separacao">
-        <div class="comoJogar">
-            <div class="comoJogarDiv">
-                <h1>Tutorial</h1>
-                <p>
 
-                </p>
-                Clique em JOGAR
-                <p></p>
-                Ultilize as setinhas para subir e descer e mover para aos lados com a cobrinha
-                <P></P>
-                Ao passar a cobrinha por cima da fruta, você ganhará pontos.
-                <p></p>
-                Se o jogo travar, aperte este botão.
-                <p></p>
-                <div class="botao" id="botaodive"><button id="refreshAtualiza" type="button" onclick="">
-                AQUI </button> </div>
-            </div>
-
-        </div>
         <div class="Quadrado">
+            <div class="BarraJogo">
+                <img class="BarraDeVida" src="assets/Heart_HeartBar/barraVida.png">
+                <progress class="BarraDeVidaColorida" value="100" max="100" id=p1></progress>
+                </img>
+                <div class="QPontos">
+                    <spann id="pontuacao" class="pontuacao">0</spann>
+                </div>
+                <div class="QHearts">
+                    <spann id="heartsValue" class="heartsValue"></spann>x
+                    <div class="QHearts1"> <img id="QHearts1" class="QHeartSize"></div>
+                    <div class="QHearts2"> <img id="QHearts2" class="QHeartSize"></div>
+                    <div class="QHearts3"> <img id="QHearts3" class="QHeartSize"></div>
+                </div>
+
+
+            </div>
             <div class="jogo">
+
                 <canvas id="snake" width="512" height="512"></canvas>
             </div>
 

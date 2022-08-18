@@ -1,6 +1,12 @@
 //--------------------------    VARIAVEIS   -----------------------
 var ranking = [];
+var lifes = [];
+var Qlifes;
 
+
+lifes[0] = true;
+lifes[1] = true;
+lifes[3] = true;
 
 var playerCanPlay = true;
 
@@ -13,15 +19,99 @@ ranking[4] = 0;
 let lista = 0;
 let pontos = 0; // pontos
 
+var inseto_tempo = 70;
+var inseto_Dourado_tempo = 70;
+
+
+var Inseto_Raro = true;
+
+
+var vida_Bonus = 40;
+
+var Inseto_Raro__Calculo = 0;
+var Inseto_Raro__Calculo_Math = 0; // calculo de % de gerir o inseto raro
+
+
+var _tempo_Inseto_Dourado = 0;
+var Inseto_Dourado_Pontos = 0;
+var Inseto_Dourado_Pontos__Calculo = 0;
+
+
+var audio4 = document.getElementById('audio4');
 
 //  Define o campo usando em x e y e a largura e altura setadas
 //      Define the fild of the game
 
 
+function playerCanPlayYorN() {
+
+    if (playerCanPlay == false) {
+        clearInterval(jogo);
+        console.log("Player can play " + playerCanPlay)
+    }
+
+}
+
+function HaveHearts() {
+
+
+
+    document.getElementById("heartsValue").innerHTML = Qlifes;
+    var HeartFulls = [];
+
+    HeartFulls[0] = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/Heart_HeartBar/vidaVazia.png?raw=true";
+    HeartFulls[1] = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/Heart_HeartBar/vidaCheia.png?raw=true";
+
+    var Vida1 = document.getElementById("QHearts1");
+    var Vida2 = document.getElementById("QHearts2");
+    var Vida3 = document.getElementById("QHearts3");
+
+    if (Qlifes <= 0) {
+
+        Qlifes = 0;
+
+        document.getElementById("heartsValue").innerHTML = Qlifes;
+        Vida1.src = HeartFulls[0];
+        Vida2.src = HeartFulls[0];
+        Vida3.src = HeartFulls[0];
+
+        playerCanPlay = false;
+
+        playerCanPlayYorN();
+
+    } else if (Qlifes == 1) {
+
+        vida = 100;
+
+
+        Vida1.src = HeartFulls[0];
+        Vida2.src = HeartFulls[0];
+        Vida3.src = HeartFulls[1];
+
+    } else if (Qlifes == 2) {
+
+        vida = 100;
+
+
+        Vida1.src = HeartFulls[0];
+        Vida2.src = HeartFulls[1];
+        Vida3.src = HeartFulls[1];
+
+    } else if (Qlifes >= 3) {
+
+        vida = 100;
+
+        Vida1.src = HeartFulls[1];
+        Vida2.src = HeartFulls[1];
+        Vida3.src = HeartFulls[1];
+
+    }
+
+
+
+}
+
 function jogar() {
-
-
-
 
     var FrutasNumero = 0; // para trocar a cor da comida ( piscando)
     var Frutas = []; //to change food color (flashing)
@@ -164,21 +254,32 @@ function jogar() {
 
     function drawinseto() {
 
+        1
+
+        if (Inseto_Raro == true) {
 
 
-        base_image = new Image();
-        base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/joaninha.jpg?raw=true";
+            base_image = new Image();
+            base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/comidas/strawberry.jpg?raw=true";
+
+            context.drawImage(base_image, inseto.x, inseto.y, box, box);
+
+        } else {
+
+
+
+            base_image = new Image();
+            base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/joaninha.jpg?raw=true";
 
 
 
 
-        context.drawImage(base_image, inseto.x, inseto.y, box, box);
+            context.drawImage(base_image, inseto.x, inseto.y, box, box);
 
-
+        }
 
 
     }
-
 
 
 
@@ -225,53 +326,89 @@ function jogar() {
 
             // SE A CABEÇA BATER NO CORPO  / IF THE HEAD HIT THE BODY
             if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
-                clearInterval(jogo);
+
 
                 var audio2 = document.getElementById('audio2');
                 audio2.play();
 
-                playerCanPlay = true;
 
 
-                document.getElementById("pontuacao").innerHTML = pontos;
-                ranking[lista] = pontos;
-
-
-
-
-                document.getElementById("pont0").innerHTML = ranking[0];
-                document.getElementById("pont1").innerHTML = ranking[1];
-                document.getElementById("pont2").innerHTML = ranking[2];
-                document.getElementById("pont3").innerHTML = ranking[3];
-                document.getElementById("pont4").innerHTML = ranking[4];
                 vida = 100;
-                pontos = 0;
-                lista++
+                Qlifes = Qlifes - 1;
+                clearInterval(jogo);
+                jogar();
+
+
             }
             if (snake[0].x == inseto.x && snake[0].y == inseto.y) {
-                clearInterval(jogo);
-
-                var audio2 = document.getElementById('audio2');
-                audio2.play();
-
-                playerCanPlay = true;
 
 
-                document.getElementById("pontuacao").innerHTML = pontos;
-                ranking[lista] = pontos;
+                if (_tempo_Inseto_Dourado < 5) {
+
+
+                    _tempo_Inseto_Dourado++;
+                    audio4.play();
+                    vida = vida + vida_Bonus;
+                    pontos++;
+                    document.getElementById("pontuacao").innerHTML = pontos;
+
+                    drawinseto();
+
+                    inseto_x = Math.floor(Math.random() * 15 + 1) * box;
+                    inseto_y = Math.floor(Math.random() * 15 + 1) * box;
+                    if (inseto_x != food.x && inseto_x != snake.x) {
+
+                        inseto.x = inseto_x;
+                    } else {
+                        inseto_x = Math.floor(Math.random() * 15 + 1) * box;
+                    }
+
+                    if (inseto_y != food.y && inseto_y != snake.y) {
+
+                        inseto.y = inseto_x;
+                    } else {
+                        inseto_y = Math.floor(Math.random() * 15 + 1) * box;
+                    }
 
 
 
 
-                document.getElementById("pont0").innerHTML = ranking[0];
-                document.getElementById("pont1").innerHTML = ranking[1];
-                document.getElementById("pont2").innerHTML = ranking[2];
-                document.getElementById("pont3").innerHTML = ranking[3];
-                document.getElementById("pont4").innerHTML = ranking[4];
-                vida = 100;
-                pontos = 0;
-                lista++
+
+
+                } else {
+
+
+
+
+
+                    var audio2 = document.getElementById('audio2');
+                    audio2.play();
+
+                    inseto_x = Math.floor(Math.random() * 15 + 1) * box;
+                    inseto_y = Math.floor(Math.random() * 15 + 1) * box;
+                    if (inseto_x != food.x && inseto_x != snake.x) {
+
+                        inseto.x = inseto_x;
+                    } else {
+                        inseto_x = Math.floor(Math.random() * 15 + 1) * box;
+                    }
+
+                    if (inseto_y != food.y && inseto_y != snake.y) {
+
+                        inseto.y = inseto_x;
+                    } else {
+                        inseto_y = Math.floor(Math.random() * 15 + 1) * box;
+                    }
+
+                    Qlifes = Qlifes - 1;
+                    vida = 100;
+
+                    drawinseto();
+                }
+
+
             }
+
 
 
             vidamenos = 100 - vida;
@@ -279,32 +416,15 @@ function jogar() {
             document.getElementById("p1").value = vidamenos;
 
             if (vida == 0) {
-
-                document.getElementById("pontuacao").innerHTML = pontos;
-                ranking[lista] = pontos;
-
                 var audio1 = document.getElementById('audio1');
                 audio1.play();
 
-                document.getElementById("pont0").innerHTML = ranking[0];
-                document.getElementById("pont1").innerHTML = ranking[1];
-                document.getElementById("pont2").innerHTML = ranking[2];
-                document.getElementById("pont3").innerHTML = ranking[3];
-                document.getElementById("pont4").innerHTML = ranking[4];
-                lista++
-                playerCanPlay = true;
-                clearInterval(jogo);
-
-
+                Qlifes = Qlifes - 1;
                 vida = 100;
-                pontos = 0;
-
-
+                console.log(`A quantidade de vidas é :${Qlifes}`);
+                console.log("Player can play " + playerCanPlay)
 
             }
-
-
-
 
 
         }
@@ -314,6 +434,7 @@ function jogar() {
         //-----------------------------------------------------------------
 
         // Chama as funções criadas anteriormentes / Calls previously created functions
+        HaveHearts();
         criarBG();
         criarCobrinha();
         drawFood();
@@ -395,9 +516,8 @@ function jogar() {
             // ao passar a cobra na comida, ela gera a comida em outro lugar
             // when passing the snake in the food, it generates the food elsewhere
 
-            var audio4 = document.getElementById('audio4');
-            audio4.play();
-            vida = vida + 30;
+
+            vida = vida + vida_Bonus;
             if (vida > 100) {
                 vida = 100;
             }
@@ -405,15 +525,11 @@ function jogar() {
 
             FrutasNumero = Math.floor(Math.random() * 4);
 
+            audio4.play();
             pontos++;
             document.getElementById("pontuacao").innerHTML = pontos;
 
         }
-
-
-
-
-
 
 
         //---------------------------------------------- Função para cabeça da Cobra / Function for Snake Head
@@ -427,10 +543,6 @@ function jogar() {
 
         }
 
-
-
-
-
         snake.unshift(newHead); // Adiciona 1 no valor da cabeça / Add 1 to the head value
 
 
@@ -438,6 +550,23 @@ function jogar() {
         vida--;
 
         if (_tempo == inseto_tempo) {
+
+
+
+            Inseto_Raro__Calculo = Math.floor(Math.random() * Inseto_Raro__Calculo_Math + 1);
+
+            if (Inseto_Raro__Calculo == 1) {
+                Inseto_Raro = true;
+
+            } else {
+                Inseto_Raro = false;
+            }
+
+
+            console.log("drawing inset is rare? " + Inseto_Raro);
+            console.log("drawing inset is rare? " + Inseto_Raro__Calculo);
+
+            drawinseto();
 
             inseto_x = Math.floor(Math.random() * 15 + 1) * box;
             inseto_y = Math.floor(Math.random() * 15 + 1) * box;
@@ -460,12 +589,17 @@ function jogar() {
 
         }
 
+        if (_tempo_Inseto_Dourado = 5) {
 
+            _tempo_Inseto_Dourado = 0;
+        }
         _tempo++;
-        console.log(_tempo);
+
+        console.log(_tempo_Inseto_Dourado);
 
 
     }
+
 
     //---------------------------------------------- Função para Atualizar o jogo / Function Game Update
     jogo = setInterval(IniciarJogo, 100);
@@ -475,11 +609,12 @@ function jogar() {
 
 
     var _tempo = 1;
-    var inseto_tempo = 100;
-
 
 
 }
+
+
+
 
 
 
@@ -499,11 +634,16 @@ btn.addEventListener("click", function() {
         audio3.play();
         document.getElementById("pontuacao").innerHTML = pontos;
 
+        Qlifes = 3;
+
+        console.log("Player can play " + playerCanPlay)
+        HaveHearts();
         jogar();
 
-        audioFundo.play();
 
-        playerCanPlay = false;
+
+
+
 
     }
 
@@ -511,9 +651,9 @@ btn.addEventListener("click", function() {
 
 });
 
-var btn = document.querySelector("#refreshAtualiza");
-btn.addEventListener("click", function() {
 
-    location.reload();
 
-});
+
+//------------------------------------------------------- MAPAS
+/* nessa parte irei criar os mapas baseados na função de exportação
+irei criar blocos estaticos no canvas e personalização dos jogos aleatorias. */
