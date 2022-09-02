@@ -23,16 +23,18 @@ var inseto_tempo = 70;
 var inseto_Dourado_tempo = 70;
 
 
-var Inseto_Raro = true;
+var Inseto_Raro = false;
 
 
 var vida_Bonus = 40;
 
+
 var Inseto_Raro__Calculo = 0;
-var Inseto_Raro__Calculo_Math = 0; // calculo de % de gerir o inseto raro
+var Inseto_Raro__Calculo_Math = 5; // calculo de % de gerir o inseto raro
 
-
-var _tempo_Inseto_Dourado = 0;
+var _tempo_aparecer_inseto = 0;
+var _tempo_Inseto_Dourado = 120;
+var _tempo_Inseto_Dourado__bonus = 120;
 var Inseto_Dourado_Pontos = 0;
 var Inseto_Dourado_Pontos__Calculo = 0;
 
@@ -43,14 +45,21 @@ var audio4 = document.getElementById('audio4');
 //      Define the fild of the game
 
 
-function playerCanPlayYorN() {
 
-    if (playerCanPlay == false) {
-        clearInterval(jogo);
-        console.log("Player can play " + playerCanPlay)
+
+function randomHeart() {
+
+    var randomHeart_ = Math.floor(Math.random() * 25)
+
+    if (randomHeart_ == 5) {
+        Qlifes = Qlifes + 1
     }
 
 }
+
+
+
+
 
 function HaveHearts() {
 
@@ -75,9 +84,12 @@ function HaveHearts() {
         Vida2.src = HeartFulls[0];
         Vida3.src = HeartFulls[0];
 
-        playerCanPlay = false;
+        playerCanPlay = true;
 
-        playerCanPlayYorN();
+        clearInterval(jogo);
+
+        alert('Game Over :(');
+        document.getElementById('refresh').style.display = 'block';
 
     } else if (Qlifes == 1) {
 
@@ -101,6 +113,7 @@ function HaveHearts() {
 
         vida = 100;
 
+
         Vida1.src = HeartFulls[1];
         Vida2.src = HeartFulls[1];
         Vida3.src = HeartFulls[1];
@@ -115,6 +128,7 @@ function jogar() {
 
     var FrutasNumero = 0; // para trocar a cor da comida ( piscando)
     var Frutas = []; //to change food color (flashing)
+
 
 
     Frutas[0] = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/comidas/banan.jpg?raw=true";
@@ -148,7 +162,11 @@ function jogar() {
 
     }
 
-    let direction = "right"; // define a direção da cobra / define the snake direction 
+
+
+
+
+    let direction = document.addEventListener('keydown', update); // define a direção da cobra / define the snake direction 
 
     //-------------------------------------------------------------- DEFINE A COMIDA / DEFINE THE FOOD
     // define a comida como um array / define the food with an array
@@ -254,29 +272,32 @@ function jogar() {
 
     function drawinseto() {
 
-        1
 
-        if (Inseto_Raro == true) {
+        if (_tempo_aparecer_inseto > 70) {
 
-
-            base_image = new Image();
-            base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/comidas/strawberry.jpg?raw=true";
-
-            context.drawImage(base_image, inseto.x, inseto.y, box, box);
-
-        } else {
+            if (Inseto_Raro == true) {
 
 
+                base_image = new Image();
+                base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/Insects/joaninha_dourada.png?raw=true";
 
-            base_image = new Image();
-            base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/joaninha.jpg?raw=true";
+                context.drawImage(base_image, inseto.x, inseto.y, box, box);
+
+            } else {
 
 
 
+                base_image = new Image();
+                base_image.src = "https://github.com/ViniciusF-Pereira/SnakeGameGame.github.io/blob/main/assets/Insects/joaninha.png?raw=true";
 
-            context.drawImage(base_image, inseto.x, inseto.y, box, box);
 
+
+
+                context.drawImage(base_image, inseto.x, inseto.y, box, box);
+
+            }
         }
+
 
 
     }
@@ -331,10 +352,11 @@ function jogar() {
                 var audio2 = document.getElementById('audio2');
                 audio2.play();
 
+                _tempo_aparecer_inseto = 0;
 
-
-                vida = 100;
                 Qlifes = Qlifes - 1;
+                vida = 100;
+
                 clearInterval(jogo);
                 jogar();
 
@@ -343,12 +365,16 @@ function jogar() {
             if (snake[0].x == inseto.x && snake[0].y == inseto.y) {
 
 
-                if (_tempo_Inseto_Dourado < 5) {
+                if (_tempo_Inseto_Dourado < _tempo_Inseto_Dourado__bonus) {
 
 
-                    _tempo_Inseto_Dourado++;
+
                     audio4.play();
                     vida = vida + vida_Bonus;
+                    if (vida > 100) {
+                        vida = 100;
+                    }
+
                     pontos++;
                     document.getElementById("pontuacao").innerHTML = pontos;
 
@@ -356,14 +382,14 @@ function jogar() {
 
                     inseto_x = Math.floor(Math.random() * 15 + 1) * box;
                     inseto_y = Math.floor(Math.random() * 15 + 1) * box;
-                    if (inseto_x != food.x && inseto_x != snake.x) {
+                    if (inseto_x != food.x || inseto_x != snake.x) {
 
                         inseto.x = inseto_x;
                     } else {
                         inseto_x = Math.floor(Math.random() * 15 + 1) * box;
                     }
 
-                    if (inseto_y != food.y && inseto_y != snake.y) {
+                    if (inseto_y != food.y || inseto_y != snake.y) {
 
                         inseto.y = inseto_x;
                     } else {
@@ -372,7 +398,7 @@ function jogar() {
 
 
 
-
+                    randomHeart();
 
 
                 } else {
@@ -386,22 +412,26 @@ function jogar() {
 
                     inseto_x = Math.floor(Math.random() * 15 + 1) * box;
                     inseto_y = Math.floor(Math.random() * 15 + 1) * box;
-                    if (inseto_x != food.x && inseto_x != snake.x) {
+                    if (inseto_x != food.x || inseto_x != snake.x) {
 
                         inseto.x = inseto_x;
                     } else {
                         inseto_x = Math.floor(Math.random() * 15 + 1) * box;
                     }
 
-                    if (inseto_y != food.y && inseto_y != snake.y) {
+                    if (inseto_y != food.y || inseto_y != snake.y) {
 
                         inseto.y = inseto_x;
                     } else {
                         inseto_y = Math.floor(Math.random() * 15 + 1) * box;
                     }
 
+
                     Qlifes = Qlifes - 1;
                     vida = 100;
+                    clearInterval(jogo);
+                    jogar();
+
 
                     drawinseto();
                 }
@@ -419,6 +449,7 @@ function jogar() {
                 var audio1 = document.getElementById('audio1');
                 audio1.play();
 
+                _tempo_aparecer_inseto = 1;
                 Qlifes = Qlifes - 1;
                 vida = 100;
                 console.log(`A quantidade de vidas é :${Qlifes}`);
@@ -439,6 +470,7 @@ function jogar() {
         criarCobrinha();
         drawFood();
         drawinseto();
+
 
         let snakeX = snake[0].x; // 0 -> X 
         let snakeY = snake[0].y; // 0 -> Y
@@ -497,14 +529,14 @@ function jogar() {
 
             food_x = Math.floor(Math.random() * 15 + 1) * box;
             food_y = Math.floor(Math.random() * 15 + 1) * box;
-            if (food_x != inseto.x && food_x != snake.x) {
+            if (food_x != inseto.x || food_x != snake.x) {
 
                 food.x = food_x;
             } else {
                 food_x = Math.floor(Math.random() * 15 + 1) * box;
             }
 
-            if (food_y != inseto.y && food_y != snake.y) {
+            if (food_y != inseto.y || food_y != snake.y) {
 
                 food.y = food_y;
             } else {
@@ -521,6 +553,7 @@ function jogar() {
             if (vida > 100) {
                 vida = 100;
             }
+            randomHeart();
 
 
             FrutasNumero = Math.floor(Math.random() * 4);
@@ -553,15 +586,21 @@ function jogar() {
 
 
 
-            Inseto_Raro__Calculo = Math.floor(Math.random() * Inseto_Raro__Calculo_Math + 1);
+            Inseto_Raro__Calculo = Math.floor(Math.random() * Inseto_Raro__Calculo_Math);
 
-            if (Inseto_Raro__Calculo == 1) {
+            if (Inseto_Raro__Calculo == 1 || Inseto_Raro__Calculo == 2) {
+
+                _tempo_Inseto_Dourado = 0;
+
+            }
+            if (_tempo_Inseto_Dourado == 0) {
                 Inseto_Raro = true;
 
-            } else {
-                Inseto_Raro = false;
             }
-
+            if (_tempo_Inseto_Dourado > _tempo_Inseto_Dourado__bonus) {
+                inseto_raro = false;
+                console.log("Inseto_Raro: " + inseto_raro);
+            }
 
             console.log("drawing inset is rare? " + Inseto_Raro);
             console.log("drawing inset is rare? " + Inseto_Raro__Calculo);
@@ -570,14 +609,14 @@ function jogar() {
 
             inseto_x = Math.floor(Math.random() * 15 + 1) * box;
             inseto_y = Math.floor(Math.random() * 15 + 1) * box;
-            if (inseto_x != food.x && inseto_x != snake.x) {
+            if (inseto_x != food.x || inseto_x != snake.x) {
 
                 inseto.x = inseto_x;
             } else {
                 inseto_x = Math.floor(Math.random() * 15 + 1) * box;
             }
 
-            if (inseto_y != food.y && inseto_y != snake.y) {
+            if (inseto_y != food.y || inseto_y != snake.y) {
 
                 inseto.y = inseto_x;
             } else {
@@ -589,20 +628,22 @@ function jogar() {
 
         }
 
-        if (_tempo_Inseto_Dourado = 5) {
+        if (_tempo_Inseto_Dourado > 120) {
 
-            _tempo_Inseto_Dourado = 0;
+            Inseto_Raro = false;
         }
         _tempo++;
+        _tempo_Inseto_Dourado++;
+        if (_tempo == 60) {
+            drawFood();
+        }
 
-        console.log(_tempo_Inseto_Dourado);
-
-
+        _tempo_aparecer_inseto++;
     }
 
 
     //---------------------------------------------- Função para Atualizar o jogo / Function Game Update
-    jogo = setInterval(IniciarJogo, 100);
+    jogo = setInterval(IniciarJogo, 110);
     //                                   ^  definida em milissegundos / difine in milliseconds
     // Define um intervalo de tempo para iniciar o jogo e renovar o jogo sem ele travar
     // Sets a time interval to start the game and renew the game without it crashing
@@ -632,25 +673,32 @@ btn.addEventListener("click", function() {
     if (playerCanPlay == true) {
         var audio3 = document.getElementById('audio3');
         audio3.play();
+        mostra_oculta();
         document.getElementById("pontuacao").innerHTML = pontos;
 
         Qlifes = 3;
-
+        pontos = 0;
         console.log("Player can play " + playerCanPlay)
         HaveHearts();
         jogar();
 
+        document.getElementById('refresh').style.display = 'none';
+
+    }
+});
 
 
 
 
+function mostra_oculta() {
 
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
     }
 
 
-
-});
-
+}
 
 
 

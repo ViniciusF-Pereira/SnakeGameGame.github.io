@@ -27,71 +27,43 @@
 
 <body>
 
-    <div class="separacao">
-
-        <div class="Quadrado">
-            <div class="BarraJogo">
-                <img class="BarraDeVida" src="assets/Heart_HeartBar/barraVida.png">
-                <progress class="BarraDeVidaColorida" value="100" max="100" id=p1></progress>
-                </img>
-                <div class="QPontos">
-                    <spann id="pontuacao" class="pontuacao">0</spann>
-                </div>
-                <div class="QHearts">
-                    <spann id="heartsValue" class="heartsValue"></spann>x
-                    <div class="QHearts1"> <img id="QHearts1" class="QHeartSize"></div>
-                    <div class="QHearts2"> <img id="QHearts2" class="QHeartSize"></div>
-                    <div class="QHearts3"> <img id="QHearts3" class="QHeartSize"></div>
-                </div>
 
 
+    <div class="Quadrado">
+        <div class="BarraJogo" id="myDIV" style='display: none;'>
+            <img class="BarraDeVida" src="assets/Heart_HeartBar/barraVida.png">
+            <progress class="BarraDeVidaColorida" value="100" max="100" id=p1></progress>
+
+            <div class="QPontos">
+                <span id="pontuacao" class="pontuacao">0</span>
             </div>
-            <div class="jogo">
-
-                <canvas id="snake" width="512" height="512"></canvas>
+            <div class="QHearts">
+                <span id="heartsValue" class="heartsValue"></span>x
+                <div class="QHearts1"> <img id="QHearts1" class="QHeartSize"></div>
+                <div class="QHearts2"> <img id="QHearts2" class="QHeartSize"></div>
+                <div class="QHearts3"> <img id="QHearts3" class="QHeartSize"></div>
             </div>
-
 
 
         </div>
-        <div class="div-pontuacao">
-            <div class="div-vida">
-                <p class="pVIDA">VIDA</p>
-                <progress value="100" max="100" id=p1></progress>
-                <spann id="vida" class="vida"></spann>
-            </div>
-            <div class="divPontuacao">
-                <span>Pontuação</span>
-                <div>
-                    <spann id="pontuacao" class="pontuacao">0</spann>
-                </div>
-            </div>
+        <div class="jogo">
 
-            <div class="pontuacao-div">
-                <ul>
-                    <span>Ultimas Pontuações</span>
-                    <p></p>
-                    <li id="pont0">
-
-                    </li>
-                    <li id="pont1">
-
-                    </li>
-                    <li id="pont2">
-
-                    </li>
-                    <li id="pont3">
-
-                    </li>
-                    <li id="pont4">
-
-                    </li>
-                </ul>
-
-            </div>
-            <div class="botao"><button id="refresh" type="button" onclick="">JOGAR</button> </div>
+            <canvas id="snake" width="512" height="512"></canvas>
         </div>
+
+
+        <div class="botao"><button id="refresh" type="button" onclick="">JOGAR</button> </div>
+
+
+
     </div>
+
+
+
+
+
+
+
 </body>
 <footer class="rodape">
     <div class="rodapeDiv">

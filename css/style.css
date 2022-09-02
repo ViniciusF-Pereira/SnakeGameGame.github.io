@@ -5,7 +5,7 @@ body {
 html {
     background: url("https://img.freepik.com/vetores-gratis/paisagem-da-floresta-dos-desenhos-animados-ao-por-do-sol_104785-622.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 130%;
+    background-size: 100%;
     background-position: 0rem 0rem;
     background-color: green;
 }
@@ -16,7 +16,7 @@ body {
 }
 
 html {
-    zoom: 56%;
+    zoom: 95%;
 }
 
 .SnakeGame {
@@ -32,8 +32,8 @@ html {
 }
 
 .icone {
-    height: 250px;
-    width: 250px;
+    height: 60px;
+    width: 60px;
     position: fixed;
 }
 
@@ -42,19 +42,6 @@ html {
     margin-top: 1.5%;
     margin-right: 20px;
     margin-left: 30PX;
-}
-
-.comoJogar {
-    border: 2px solid black;
-    width: 450px;
-    margin-left: 70px;
-    background-color: rgb(198, 245, 167);
-    align-items: center;
-    text-align: center;
-}
-
-.comoJogarDiv {
-    margin-top: 40px;
 }
 
 .cabecalho {
@@ -89,29 +76,6 @@ a:hover {
     text-decoration: underline;
 }
 
-.pontuacao-div {
-    text-align: center;
-    color: black;
-    border: 1px solid black;
-    background-color: rgb(201, 236, 190);
-    font-size: 25px;
-    width: 200px;
-    margin-left: 75px;
-    margin-right: 75px;
-    border-radius: 10%;
-}
-
-.divPontuacao {
-    width: 190px;
-    height: 100px;
-    background-color: rgb(201, 236, 190);
-    border: 4px black solid;
-    border-radius: 30%;
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-bottom: 20px;
-}
-
 .pVIDA {
     font-size: 30px;
     color: black;
@@ -126,37 +90,20 @@ li {
     list-style-type: armenian;
 }
 
-.div-pontuacao {
-    text-align: center;
-    align-items: center;
-    width: 350px;
-    background-color: rgb(198, 245, 167);
-    margin-right: 70px;
-    border: 2px solid black;
-}
-
-.separacao {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 14rem;
-}
-
 .Quadrado {
-    margin-top: 2%;
-    margin-left: 60px;
-    margin-right: 60px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    zoom: 152%;
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+    zoom: 90%;
 }
 
 .botao {
-    margin-top: 20px;
     text-align: center;
-    margin-bottom: 40px;
-    margin-left: 123px;
-    margin-right: 120px;
+    position: fixed;
+    margin-top: 20%;
 }
 
 .botao button {
@@ -166,10 +113,6 @@ li {
     color: white;
     transition: 3s;
     font-size: 30px;
-}
-
-#botaodive {
-    margin-top: 100px;
 }
 
 .botao button:hover {
@@ -203,4 +146,45 @@ progress::-webkit-progress-value {
 
 progress::-webkit-progress-bar {
     background: rgb(0, 255, 55);
+}
+
+.jogo {
+    width: 512px;
+    height: 900px;
+}
+
+.BarraJogo {
+    background-color: aliceblue;
+    width: 512px;
+    height: 100px;
+}
+
+.BarraDeVida {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+}
+
+.BarraDeVidaColorida {
+    margin-top: 32px;
+    margin-left: 82px;
+    width: 196px;
+    height: 29px;
+}
+
+.QPontos {
+    margin-left: 90%;
+    margin-top: -50px;
+}
+
+.QHearts {
+    margin-top: 2%;
+    margin-left: 65%;
+    display: flex;
+    justify-items: end;
+}
+
+.QHeartSize {
+    height: 40px;
+    width: 40px;
 }
